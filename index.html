@@ -55,6 +55,10 @@
                 
                 'week3_title': 'Week 3: Your Third Post Title',
                 'week3_content': 'Text',
+                
+                'week4_title': 'Week 4: Your Third Post Title',
+                'week4_content': 'Text',
+                
             },
             pt: {
                 'title': 'Painel de Braille dinâmico',
@@ -67,6 +71,9 @@
 
                 'week3_title': 'Semana 3: titulo',
                 'week3_content': 'Texto',
+                
+                'week4_title': 'Semana 4: titulo',
+                'week4_content': 'Texto',
             }
         };
 
@@ -82,6 +89,9 @@
 
             document.getElementById('week3-title').textContent = translations[lang]['week3_title'];
             document.getElementById('week3-content').textContent = translations[lang]['week3_content'];
+
+            document.getElementById('week4-title').textContent = translations[lang]['week4_title'];
+            document.getElementById('week4-content').textContent = translations[lang]['week4_content'];
         }
 
         window.onload = function() {
@@ -109,6 +119,11 @@
         <div class="post">
             <h2 id="week3-title">Loading...</h2>
             <p id="week3-content"/>
+        </div>
+
+        <div class="post">
+            <h2 id="week4-title">Loading...</h2>
+            <p id="week4-content"/>
         </div>
     </div>
 
