@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Your Blog Title</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: white;
+            color: #333;
+            line-height: 1.6;
+        }
+        header {
+            background-color: #f4f4f4;
+            padding: 20px;
+            text-align: center;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+        .post-container {
+            width: 80%;
+            margin: 20px auto;
+        }
+        .post {
+            border-bottom: 1px solid #ddd;
+            padding: 20px 0;
+        }
+        .post:last-child {
+            border-bottom: none;
+        }
+        .post h2 {
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+        .post p {
+            font-size: 1.1em;
+        }
+    </style>
+    <script>
+        const translations = {
+            en: {
+                'title': 'Dyanamic Braille display',
+
+                'week1_title': 'Week 1: Your First Post Title',
+                'week1_content': 'Text',
+                
+                'week2_title': 'Week 2: Your Second Post Title',
+                'week2_content': 'Text',
+                
+                'week3_title': 'Week 3: Your Third Post Title',
+                'week3_content': 'Text',
+            },
+            pt: {
+                'title': 'Painel de Braille dinâmico',
+
+                'week1_title': 'Semana 1: titulo',
+                'week1_content': 'Texto',
+
+                'week2_title': 'Semana 2: titulo',
+                'week2_content': 'Texto',
+
+                'week3_title': 'Semana 3: titulo',
+                'week3_content': 'Texto',
+            }
+        };
+
+        // Function to load translations based on the selected language
+        function loadTranslations(lang = 'pt') {
+            document.getElementById('title').textContent = translations[lang]['title'];
+            
+            document.getElementById('week1-title').textContent = translations[lang]['week1_title'];
+            document.getElementById('week1-content').textContent = translations[lang]['week1_content'];
+
+            document.getElementById('week2-title').textContent = translations[lang]['week2_title'];
+            document.getElementById('week2-content').textContent = translations[lang]['week2_content'];
+
+            document.getElementById('week3-title').textContent = translations[lang]['week3_title'];
+            document.getElementById('week3-content').textContent = translations[lang]['week3_content'];
+        }
+
+        window.onload = function() {
+            loadTranslations();
+        };
+    </script>
+</head>
+<body>
+
+    <header>
+        <h1 id="title">Loading...</h1>
+    </header>
+
+    <div class="post-container">
+        <div class="post">
+            <h2 id="week1-title">Loading...</h2>
+            <p id="week1-content"/>
+        </div>
+
+        <div class="post">
+            <h2 id="week2-title">Loading...</h2>
+            <p id="week2-content"/>
+        </div>
+
+        <div class="post">
+            <h2 id="week3-title">Loading...</h2>
+            <p id="week3-content"/>
+        </div>
+    </div>
+
+    <footer style="text-align:center; padding: 20px;">
+        <button onclick="loadTranslations('en')">English</button>
+        <button onclick="loadTranslations('pt')">Português</button>
+    </footer>
+
+</body>
+</html>
