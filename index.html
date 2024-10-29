@@ -3,118 +3,244 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Your Blog Title</title>
+    <title>RBDS</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
+        /* Root color scheme */
+        :root {
+            --primary-color: #083641; /* Dark color from the logo */
+            --grey-color: #333;
+            --light-grey-color: #aaa;
+            --white-color: #eee;
+            --accent-color: #000;
+        }
+
+        /* Reset default margins and paddings */
+        * {
             margin: 0;
             padding: 0;
-            background-color: white;
-            color: #333;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        /* Body styling */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: var(--white-color);
+            color: var(--grey-color);
             line-height: 1.6;
         }
-        header {
-            background-color: #f4f4f4;
-            padding: 20px;
+
+        /* Navbar styling */
+        .navbar {
+            top: 0;
+            position: fixed;
+            width: 100vw;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1em;
+            color: var(--white-color);
+            background-color: var(--primary-color);
+        }
+
+        .navbar a {
+            color: var(--white-color);
+            text-decoration: none;
+            margin-left: 1rem;
+            font-weight: bold;
+        }
+
+        .navbar a:hover {
+            color: var(--accent-color);
+        }
+
+        .navbar img {
+            height: 1em;
+            margin-left: .5em;
+            cursor: pointer;
+        }
+
+        .navbar > a > img {
+            height: 2.5em;
+        }
+        
+        /* Section styling */
+        section {
+            padding: 4rem 2rem;
+            max-width: 800px;
+            margin: auto;
+            border-bottom: var(--light-grey-color) 1px solid;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: var(--accent-color);
+        }
+
+        #about {
+            margin-top: 2em;
+        }
+
+        .post p, .post ul {
+            padding-left: 2em;
+        }
+
+        /* Footer styling */
+        footer {
             text-align: center;
-        }
-        header h1 {
-            margin: 0;
-            font-size: 2.5em;
-        }
-        .post-container {
-            width: 80%;
-            margin: 20px auto;
-        }
-        .post {
-            border-bottom: 1px solid #ddd;
-            padding: 20px 0;
-        }
-        .post:last-child {
-            border-bottom: none;
-        }
-        .post h2 {
-            font-size: 2em;
-            margin-bottom: 10px;
-        }
-        .post p {
-            font-size: 1.1em;
+            padding: 1rem;
+            background-color: var(--primary-color);
+            color: var(--white-color);
         }
     </style>
     <script>
         const translations = {
             en: {
-                'title': 'Dyanamic Braille display',
+                "title": "Refreshable Braille Display",
+                "about": "About",
+                "project-details": "Project Details",
+                "progress": "Progress",
+                "results": "Results",
+                "contact": "Contact",
+                "rbds-description": "Project Description",
 
-                'week1_title': 'Week 1: Your First Post Title',
-                'week1_content': 'Text',
-                
-                'week2_title': 'Week 2: Your Second Post Title',
-                'week2_content': 'Text',
-                
-                'week3_title': 'Week 3: Your Third Post Title',
-                'week3_content': 'Text',
-            },
+                "week0-title": "Week 0: from 10/21/2024 to 10/25/2024",
+                "week0-content": "Progress was made in the following areas:",
+
+                "week0-0": "Project Decision",
+                "week0-1": "Requirements Gathering",
+                "week0-2": "Risk Analysis",
+                "week0-3": "Project Timeline Definition",
+                "week0-4": "Materials and Methods Listing",
+
+                "week1-title": "Week 1: from 10/28/2024 to 11/01/2024",
+                "week1-content": "Progress was made in the following areas:",
+                "week1-0": "Project Proposal Creation",
+                "week1-1": "Project Presentation",
+                "week1-2": "Development of this site"
+            }
+,
             pt: {
                 'title': 'Painel de Braille dinâmico',
+                'about': 'Sobre',
+                'project-details': 'Detalhes do projeto',
+                'progress': 'Progresso',
+                'results': 'Resultados',
+                'contact': 'Contato',
+                'rbds-description': 'Descrição do projeto',
 
-                'week1_title': 'Semana 1: titulo',
-                'week1_content': 'Texto',
+                'week0-title': 'Semana 0: de 21/10/2024 a 25/10/2024',
+                'week0-content': 'Avançamos nos seguintes quesitos:',
 
-                'week2_title': 'Semana 2: titulo',
-                'week2_content': 'Texto',
+                'week0-0': 'Decisão do projeto',
+                'week0-1': 'Levantamento de requisitos',
+                'week0-2': 'Análise de riscos',
+                'week0-3': 'Definição do cronograma para o andamento do projeto',
+                'week0-4': 'Listagem de materiais e métodos',
 
-                'week3_title': 'Semana 3: titulo',
-                'week3_content': 'Texto',
+                'week1-title': 'Semana 1: de 28/10/2024 a 01/11/2024',
+                'week1-content': 'Avançamos nos seguintes quesitos:',
+                'week1-0': 'Elaboração da proposta do projeto',
+                'week1-1': 'Apresentação do projeto',
+                'week1-2': 'Desenvolvimento deste site',
             }
         };
 
         // Function to load translations based on the selected language
         function loadTranslations(lang = 'pt') {
-            document.getElementById('title').textContent = translations[lang]['title'];
-            
-            document.getElementById('week1-title').textContent = translations[lang]['week1_title'];
-            document.getElementById('week1-content').textContent = translations[lang]['week1_content'];
-
-            document.getElementById('week2-title').textContent = translations[lang]['week2_title'];
-            document.getElementById('week2-content').textContent = translations[lang]['week2_content'];
-
-            document.getElementById('week3-title').textContent = translations[lang]['week3_title'];
-            document.getElementById('week3-content').textContent = translations[lang]['week3_content'];
+            document.querySelectorAll('*').forEach(el => {
+                if (el.getAttribute('key')) {
+                    el.textContent = translations[lang][el.getAttribute('key')];
+                }
+            });
         }
 
         window.onload = function() {
             loadTranslations();
+            document.getElementById('pt').addEventListener("click", e => {
+                e.preventDefault();
+                loadTranslations('pt');
+            });
+            document.getElementById('en').addEventListener("click", e => {
+                e.preventDefault();
+                loadTranslations('en');
+            });
         };
     </script>
 </head>
 <body>
 
-    <header>
-        <h1 id="title">Loading...</h1>
-    </header>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <a href=""><img src="logo.png" alt="RBDS"></a>
+        <div>
+            <a key="about" href="#about">About</a>
+            <a key="project-details" href="#project-details">Project Details</a>
+            <a key="progress" href="#progress">Progress</a>
+            <a key="results" href="#results">Results</a>
+            <a key="contact" href="#contact">Contact</a>
+            <img src="br.png" alt="PT"id="pt">
+            <img src="us.png" alt="EN"id="en">
+        </div>
+    </nav>
 
-    <div class="post-container">
+    <!-- About Section -->
+    <section id="about">
+        <h2 key="about" class="section-title">About</h2>
+        <p key="rbds-description">Welcome to RBDS! We are dedicated to delivering exceptional projects with a focus on quality, precision, and innovation.</p>
+    </section>
+
+    <!-- Project Details Section -->
+    <section id="project-details">
+        <h2 key="project-details" class="section-title">Project Details</h2>
+        <p>Here you can find detailed information about the project scope, objectives, and the strategic approach we are following to ensure success.</p>
+    </section>
+
+    <!-- Progress Section -->
+    <section id="progress">
+        <h3 key="progress" class="section-title">Progress</h3>
         <div class="post">
-            <h2 id="week1-title">Loading...</h2>
-            <p id="week1-content"/>
+            <h3 key="week0-title">Loading...</h3>
+            <p key="week0-content"/>
+            <ul>
+                <li key="week0-0"/>
+                <li key="week0-1"/>
+                <li key="week0-2"/>
+                <li key="week0-3"/>
+                <li key="week0-4"/>
+            </ul>
         </div>
 
         <div class="post">
-            <h2 id="week2-title">Loading...</h2>
-            <p id="week2-content"/>
+            <h3 key="week1-title">Loading...</h3>
+            <p key="week1-content"/>
+            <ul>
+                <li key="week1-0"/>
+                <li key="week1-1"/>
+                <li key="week1-2"/>
+            </ul>
         </div>
 
-        <div class="post">
-            <h2 id="week3-title">Loading...</h2>
-            <p id="week3-content"/>
-        </div>
-    </div>
+        
+        <p key="stay-updated">Stay updated with our progress.</p>
+    </section>
 
-    <footer style="text-align:center; padding: 20px;">
-        <button onclick="loadTranslations('en')">English</button>
-        <button onclick="loadTranslations('pt')">Português</button>
+    <!-- Results Section -->
+    <section id="results">
+        <h2 key="results" class="section-title">Results</h2>
+        <p>Not finished yet</p>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <h2 key="contact" class="section-title">Contact</h2>
+        <p>Get in touch with us! Whether you have questions or need more information, feel free to reach out.</p>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 RBDS. All rights reserved.</p>
     </footer>
 
 </body>
