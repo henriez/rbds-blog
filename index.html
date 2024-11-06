@@ -91,7 +91,9 @@
             padding: 1em;
             display: flex;
             align-items: center;
-            justify-content: space-between;
+            justify-content: space-evenly;
+            flex-wrap: wrap;
+            gap: .5em;
             background-color: #ddd;
             border-radius: 10px;
         }
@@ -103,6 +105,19 @@
 
         .contact {
             text-align: center;
+        }
+
+        @media screen and (max-width: 900px) {
+            .contact{
+                width: 100%;
+            }
+
+            .divider {
+                width: 8em;
+                height: 1px;
+                border-bottom: var(--grey-color) 2px solid;
+                border-left: 0;
+            }
         }
 
         /* Footer styling */
@@ -122,7 +137,7 @@
                 'progress': 'Progress',
                 'results': 'Results',
                 'contacts': 'Contacts',
-                'rbds-description': 'Project Description',
+                'rbds-description': 'In the recent years, the development of new technologies is growing at a rapid pace. Along with this, the concern with digital accessibility is an important issue that has emerged. The promotion of accessibility, for people who needs it, is extremely important so that information is not exclusive to a selected group. With this in mind, the RBDS (Refreshable Braille Display) project implements a way to transmit information from a device to a tactile braille display, providing various uses such as education and general information such as items labeling.',
                 'contact-description': 'Get in touch with us! Whether you have questions or need more information, feel free to reach out.',
                 // 'project-details-description': 'Here you can find detailed information about the project scope, objectives, and the strategic approach we are following to ensure success.',
 
@@ -149,7 +164,7 @@
                 'progress': 'Progresso',
                 'results': 'Resultados',
                 'contacts': 'Contatos',
-                'rbds-description': 'Descrição do projeto',
+                'rbds-description': 'É fato que a tecnologia está se desenvolvento cada vez mais nos últimos anos. Junto a isso, a preocupação com a acessibilidade dos conteúdos digitais é um assunto que têm sua importância. Meios de promover a acessibilidade, para as pessoas que necessitam, são de extrema importância para que as informações não sejam exclusivas apenas a um seleto grupo. Visando isso, o projeto RBDS (Refreshable Braille Display) implementa um meio de transmitir informações de um dispositivo para um display tátil de braille, provendo diversos usos como educação e informações gerais como direcionamento ou etiquetas para itens.',
                 'contact-description': 'Entre em contato com a gente! Se tiver perguntas/dúvidas ou quiser mais alguma informação, sinta se livre para entrar em contato.',
                 // 'project-details-description': 'Here you can find detailed information about the project scope, objectives, and the strategic approach we are following to ensure success.',
 
@@ -211,7 +226,7 @@
     <!-- About Section -->
     <section id="about">
         <h2 key="about" class="section-title">About</h2>
-        <p key="rbds-description">Welcome to RBDS! We are dedicated to delivering exceptional projects with a focus on quality, precision, and innovation.</p>
+        <p key="rbds-description"></p>
     </section>
 
     <!-- Project Details Section -->
@@ -260,20 +275,20 @@
         <h2 key="contacts" class="section-title">Contact</h2>
         <p key="contact-description"/>
         <div class="contacts-container">
-            <span class="contact">
+            <div class="contact">
                 <div>Alan Y. Tara</div>
                 <div>alantara@alunos.utfpr.edu.br</div>
-            </span>
-            <span class="divider"></span>
-            <span class="contact">
+            </div>
+            <div class="divider"></div>
+            <div class="contact">
                 <div>Gabriel M. Conke</div>
                 <div>gabrielconke@alunos.utfpr.edu.br</div>
-            </span>
-            <span class="divider"></span>
-            <span class="contact">
+            </div>
+            <div class="divider"></div>
+            <div class="contact">
                 <div>Henrique A. P. Mendes</div>
                 <div>hmendes@alunos.utfpr.edu.br</div>
-            </span>
+            </div>
         </div>
     </section>
 
