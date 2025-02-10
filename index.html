@@ -30,6 +30,10 @@
             line-height: 1.6;
         }
 
+        p {
+            text-indent: 20px;
+        }
+
         /* Navbar styling */
         .navbar {
             top: 0;
@@ -149,6 +153,15 @@
                 "component-4": "0.1mm copper wire (approximately 500 turns)",
                 "mechanical-content": "The design uses two magnets positioned within the magnetic module, centered on the pin body, to create a magnetic retention system. This system allows the pin to move between two stable positions: an upper one (active) and a lower one (inactive). When the magnetic module receives an external impulse, the magnet is attracted to a metal nut located in the corresponding position, ensuring that the pin remains fixed without the need for continuous energy consumption. This alternation of positions is achieved precisely and efficiently thanks to the module design. To ensure compatibility with practical reality and scaled production, the module parts were manufactured by 3D printing using resin, a material that offers high precision to meet the technical requirements of the project.",
 
+               "eletronical-title": "Electronics",
+               "eletronical-specifications": "Electronic Specifications",
+               "eletronical-content-1": "The electronic part of the project is based on a custom-designed printed circuit board (PCB), developed to integrate the mechanical part, essential electronic components, and the software responsible for system control.",
+               "eletronical-content-2": "Each electromagnet will be connected to the PCB through the ends of a copper wire, which in turn will be linked to conductive traces on the board. These traces direct the current to a set of H-bridges, components responsible for controlling the flow of electrical current.",
+               "eletronical-content-3": "Each character in the system will be mapped to a specific H-bridge. These bridges function to alternate the output voltage polarity between positive and negative, depending on the received signal. This polarity inversion determines the behavior of the electromagnets, that is, whether the pins will be raised or lowered, forming the desired characters.",
+               "eletronical-content-4": "The control of this process will be carried out by an Arduino integrated into the PCB, acting as the central processing unit. It will receive message configurations directly from the server, interpret the data, and dynamically adjust the activation of the electromagnets as needed.",
+
+                "software-specifications": "Software Specifications",
+
                 'week0-title': 'Week 0: from 10/21/2024 to 10/25/2024',
                 'week0-content': 'Progress was made in the following areas:',
 
@@ -226,6 +239,15 @@
                 "component-3": "2 imãs magnéticos (4mmx4mm)",
                 "component-4": "Fio de cobre de 0.1mm (aproximadamente 500 voltas)",
                 "mechanical-content": "O projeto utiliza dois ímãs posicionados dentro do módulo magnético, centralizados no corpo do pino, para criar um sistema de retenção magnética. Esse sistema permite que o pino se mova entre duas posições estáveis: uma superior (ativa) e uma inferior (inativa). Quando o módulo magnético recebe um impulso externo, o ímã é atraído por uma porca metálica localizada na posição correspondente, garantindo que o pino permaneça fixo sem a necessidade de consumo contínuo de energia. Essa alternância de posições é obtida de maneira precisa e eficiente graças ao design do módulo. Para assegurar a compatibilidade com a realidade prática e a produção em escala, as partes do módulo foram fabricadas por impressão 3D utilizando resina, um material que oferece alta precisão para atender aos requisitos técnicos do projeto.",
+
+                'eletronical-title': 'Eletrônica',
+                'eletronical-specifications': 'Especificações eletrônicas',
+                'eletronical-content-1': 'A parte eletrônica do projeto é baseada em uma placa de circuito impresso (PCB) personalizada, desenvolvida para integrar a parte mecânica, os componentes eletrônicos essenciais e o software responsável pelo controle do sistema.',
+                'eletronical-content-2': 'Cada eletroímã será conectado à PCB por meio das extremidades de um fio de cobre, que, por sua vez, estará ligado a trilhas condutoras na placa. Essas trilhas direcionam a corrente até um conjunto de pontes H, componentes responsáveis pelo controle do fluxo de corrente elétrica.',
+                'eletronical-content-3': 'Cada caractere do sistema será mapeado para uma ponte H específica. Essas pontes têm a função de alternar a polaridade da tensão de saída entre positiva e negativa, conforme o sinal recebido. Essa inversão de polaridade determina o comportamento dos eletroímãs, ou seja, se os pinos serão levantados ou abaixados, formando os caracteres desejados.',
+                'eletronical-content-4': 'O controle desse processo será realizado por um Arduino integrado à PCB, que atuará como a unidade central de processamento. Ele receberá as configurações da mensagem diretamente do servidor, interpretando os dados e ajustando dinamicamente a ativação dos eletroímãs conforme necessário.',
+
+                'software-specifications': 'Especificações de software',
 
                 'week0-title': 'Semana 0: de 21/10/2024 a 25/10/2024',
                 'week0-content': 'Avançamos nos seguintes quesitos:',
@@ -313,15 +335,15 @@
 
     <!-- Navbar -->
     <nav class="navbar">
-        <a href=""><img src="logo.png" alt="RBDS"></a>
+        <a href=""><img src="img/logo.png" alt="RBDS"></a>
         <div>
             <a key="about" href="#about">About</a>
             <!-- <a key="project-details" href="#project-details">Project Details</a> -->
             <a key="progress" href="#progress">Progress</a>
             <!-- <a key="results" href="#results">Results</a> -->
             <a key="contacts" href="#contact">Contact</a>
-            <img src="br.png" alt="PT"id="pt">
-            <img src="us.png" alt="EN"id="en">
+            <img src="img/br.png" alt="PT"id="pt">
+            <img src="img/us.png" alt="EN"id="en">
         </div>
     </nav>
 
@@ -344,7 +366,22 @@
                 <li key="component-4" />
             </ul>
             <p key="mechanical-content" />
-        </div>      
+
+            <hr style="margin: 25px 0 25px 0" />
+
+            <h3 key="eletronical-specifications"></h3>
+            <p key="eletronical-content-1" style="margin-bottom: 8px;"></p>
+            <p key="eletronical-content-2" style="margin-bottom: 8px;"></p>
+            <img src="img/PCB_pinos.jpeg" style="width: 500px; display: block; margin: auto; padding: 20px 0 20px 0" alt="PCB_pins">
+            <p key="eletronical-content-3" style="margin-bottom: 8px;"></p>
+            <img src="img/PCB_verso.jpeg" style="width: 500px; display: block; margin: auto; padding: 20px 0 20px 0" alt="PCB_back">
+            <img src="img/PCB_frente.jpeg" style="width: 500px; display: block; margin: auto; padding: 20px 0 20px 0" alt="PBC_front">
+            <p key="eletronical-content-4"></p>
+
+            <hr style="margin: 25px 0 25px 0" />
+            <h3 key="software-specifications"></h3>
+
+        </div>  
     </section>
 
     <!-- Progress Section -->
