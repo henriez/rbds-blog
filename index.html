@@ -158,9 +158,12 @@
                "eletronical-content-1": "The electronic part of the project is based on a custom-designed printed circuit board (PCB), developed to integrate the mechanical part, essential electronic components, and the software responsible for system control.",
                "eletronical-content-2": "Each electromagnet will be connected to the PCB through the ends of a copper wire, which in turn will be linked to conductive traces on the board. These traces direct the current to a set of H-bridges, components responsible for controlling the flow of electrical current.",
                "eletronical-content-3": "Each character in the system will be mapped to a specific H-bridge. These bridges function to alternate the output voltage polarity between positive and negative, depending on the received signal. This polarity inversion determines the behavior of the electromagnets, that is, whether the pins will be raised or lowered, forming the desired characters.",
-               "eletronical-content-4": "The control of this process will be carried out by an Arduino integrated into the PCB, acting as the central processing unit. It will receive message configurations directly from the server, interpret the data, and dynamically adjust the activation of the electromagnets as needed.",
+               "eletronical-content-4": "The control of this process will be carried out by an ESP-32 integrated into the PCB, acting as the central processing unit. It will receive message configurations directly from the server, interpret the data, and dynamically adjust the activation of the electromagnets as needed.",
 
                 "software-specifications": "Software Specifications",
+                "software-content-1": "The project software was developed to offer an intuitive and interactive interface, allowing the user to enter a word of up to five characters. Upon submitting the desired word, a dedicated API will process the request and update the database with the new word.",
+                "software-content-2": "Periodically, a microprocessor connected to the PCB will make requests to the API to obtain the most recently stored word. Based on this information, the system will automatically adjust the PCB pins, ensuring that the electromagnetic components are reconfigured as needed.",
+                "software-content-3": "Additionally, the software interface was developed using HTML, CSS, and JavaScript, while the API, responsible for processing requests and updating the word in the database, was implemented with Nest.js and integrated with a PostgreSQL database. Meanwhile, the code running on the microprocessor was written in C++.",
 
                 'week0-title': 'Week 0: from 10/21/2024 to 10/25/2024',
                 'week0-content': 'Progress was made in the following areas:',
@@ -219,6 +222,45 @@
                 'week8-1': 'Use of the ESP for electromagnet testing.',
                 'week8-2': 'Modeling of the electronic circuit.',
                 'week8-3': 'PCB modeling.',
+
+                "week9-title": "Week 9: from 12/22/2024 to 12/28/2024",
+                "week9-content": "We made progress in the following areas:",
+                "week9-0": "Continuation of PDB development.",
+                "week9-1": "Purchase of materials for the production of new electromagnets.",
+
+                "week10-title": "Week 10: from 12/29/2024 to 01/04/2025",
+                "week10-content": "We made progress in the following areas:",
+                "week10-0": "Completion of PDB development.",
+                "week10-1": "Order of the printed circuit board.",
+
+                "week11-title": "Week 11: from 01/05/2025 to 01/11/2025",
+                "week11-content": "We made progress in the following areas:",
+                "week11-0": "Receipt of the PCB.",
+                "week11-1": "Integration tests of the PCB with the electromagnet.",
+                "week11-2": "Order of 3D printing for the necessary materials to produce the electromagnets.",
+
+                "week12-title": "Week 12: from 01/12/2025 to 01/18/2025",
+                "week12-content": "We made progress in the following areas:",
+                "week12-0": "Interference tests between the magnets.",
+                "week12-1": "Integration tests of the PCB with the ESP.",
+
+                "week13-title": "Week 13: from 01/19/2025 to 01/25/2025",
+                "week13-content": "We made progress in the following areas:",
+                "week13-0": "Survey of solutions to reduce interference between the magnets.",
+
+                "week14-title": "Week 14: from 01/26/2025 to 02/01/2025",
+                "week14-content": "Recess",
+
+                "week15-title": "Week 15: from 02/02/2025 to 02/08/2025",
+                "week15-content": "We made progress in the following areas:",
+                "week15-0": "Resolution of the interference problem between magnets.",
+                "week15-1": "Adjustments in the electromagnetic settings of each pin.",
+
+                "week16-title": "Week 16: from 02/09/2025 to 02/16/2025",
+                "week16-content": "We made progress in the following areas:",
+                "week16-0": "Development of the server for communication with the ESP.",
+                "week16-1": "Production of new electromagnets in the new standard.",
+                "week16-2": "Integration between the server, PCB, and electromagnets."
             },
             pt: {
                 'title': 'Painel de Braille dinâmico',
@@ -245,67 +287,108 @@
                 'eletronical-content-1': 'A parte eletrônica do projeto é baseada em uma placa de circuito impresso (PCB) personalizada, desenvolvida para integrar a parte mecânica, os componentes eletrônicos essenciais e o software responsável pelo controle do sistema.',
                 'eletronical-content-2': 'Cada eletroímã será conectado à PCB por meio das extremidades de um fio de cobre, que, por sua vez, estará ligado a trilhas condutoras na placa. Essas trilhas direcionam a corrente até um conjunto de pontes H, componentes responsáveis pelo controle do fluxo de corrente elétrica.',
                 'eletronical-content-3': 'Cada caractere do sistema será mapeado para uma ponte H específica. Essas pontes têm a função de alternar a polaridade da tensão de saída entre positiva e negativa, conforme o sinal recebido. Essa inversão de polaridade determina o comportamento dos eletroímãs, ou seja, se os pinos serão levantados ou abaixados, formando os caracteres desejados.',
-                'eletronical-content-4': 'O controle desse processo será realizado por um Arduino integrado à PCB, que atuará como a unidade central de processamento. Ele receberá as configurações da mensagem diretamente do servidor, interpretando os dados e ajustando dinamicamente a ativação dos eletroímãs conforme necessário.',
+                'eletronical-content-4': 'O controle desse processo será realizado por uma ESP-32 integrado à PCB, que atuará como a unidade central de processamento. Ele receberá as configurações da mensagem diretamente do servidor, interpretando os dados e ajustando dinamicamente a ativação dos eletroímãs conforme necessário.',
 
                 'software-specifications': 'Especificações de software',
+                'software-content-1': 'O software do projeto foi desenvolvido para oferecer uma interface intuitiva e interativa, permitindo que o usuário insira uma palavra de até cinco caracteres. Ao submeter a palavra desejada, uma API dedicada processará a solicitação e atualizará o banco de dados com a nova palavra.',
+                'software-content-2': 'Periodicamente, um microprocessador conectado à PCB fará requisições à API para obter a palavra mais recente armazenada. Com base nessa informação, o sistema ajustará automaticamente os pinos da PCB, garantindo que os componentes eletromagnéticos sejam reconfigurados conforme necessário.',
+                'software-content-3': 'Além disso, a interface do software foi desenvolvida utilizando HTML, CSS e JavaScript; enquanto a API, responsável pelo processamento das solicitações e atualização da palavra no banco de dados, foi implementada com Nest.js e integrada a um banco de dados PostgreSQL. Por sua vez, o código que roda no microprocessador foi escrito em C++.',
 
                 'week0-title': 'Semana 0: de 21/10/2024 a 25/10/2024',
                 'week0-content': 'Avançamos nos seguintes quesitos:',
-
-                'week0-0': 'Decisão do projeto',
-                'week0-1': 'Levantamento de requisitos',
-                'week0-2': 'Análise de riscos',
-                'week0-3': 'Definição do cronograma para o andamento do projeto',
-                'week0-4': 'Listagem de materiais e métodos',
+                'week0-0': 'Decisão do projeto.',
+                'week0-1': 'Levantamento de requisitos.',
+                'week0-2': 'Análise de riscos.',
+                'week0-3': 'Definição do cronograma para o andamento do projeto.',
+                'week0-4': 'Listagem de materiais e métodos.',
 
                 'week1-title': 'Semana 1: de 28/10/2024 a 01/11/2024',
                 'week1-content': 'Avançamos nos seguintes quesitos:',
-                'week1-0': 'Elaboração da proposta do projeto',
-                'week1-1': 'Apresentação do projeto',
-                'week1-2': 'Desenvolvimento deste site',
+                'week1-0': 'Elaboração da proposta do projeto.',
+                'week1-1': 'Apresentação do projeto.',
+                'week1-2': 'Desenvolvimento deste site.',
 
                 'week2-title': 'Semana 2: de 04/11/2024 a 08/11/2024',
                 'week2-content': 'Avançamos nos seguintes quesitos:',
-                'week2-0': 'Avanço na pesquisa e compra de materiais',
-                'week2-1': 'Refinamento deste blog',
-                'week2-2': 'Início da modelagem do sistema na perspectiva do servidor',
+                'week2-0': 'Avanço na pesquisa e compra de materiais.',
+                'week2-1': 'Refinamento deste blog.',
+                'week2-2': 'Início da modelagem do sistema na perspectiva do servidor.',
                 
                 'week3-title': 'Semana 3: de 11/11/2024 a 15/11/2024',
                 'week3-content': 'Avançamos nos seguintes quesitos:',
-                'week3-0': 'Compra dos materiais para prototipagem do eletroimã',
-                'week3-1': 'Teste de funcionamento do eletroimã',
+                'week3-0': 'Compra dos materiais para prototipagem do eletroimã.',
+                'week3-1': 'Teste de funcionamento do eletroimã.',
 
                 'week4-title': 'Semana 4: de 18/11/2024 a 23/11/2024',
                 'week4-content': 'Avançamos nos seguintes quesitos:',
-                'week4-0': 'Funcionamento do eletroimã',
-                'week4-1': 'Testando integração do eletroimã com o imã de neodímio',
+                'week4-0': 'Funcionamento do eletroimã.',
+                'week4-1': 'Testando integração do eletroimã com o imã de neodímio.',
 
                 'week5-title': 'Semana 5: de 23/11/2024 a 30/11/2024',
                 'week5-content': 'Avançamos nos seguintes quesitos:',
                 'week5-0': 'Adaptação do projeto para a criação do eletroimã.',
-                'week5-1': 'Análise dos requisitos e riscos no novo eletroimã projetado',
-                'week5-2': 'Modelagem em Fusion360 do modelo novo',
+                'week5-1': 'Análise dos requisitos e riscos no novo eletroimã projetado.',
+                'week5-2': 'Modelagem em Fusion360 do modelo novo.',
 
                 'week6-title': 'Semana 6: de 01/12/2024 a 07/12/2024',
                 'week6-content': 'Avançamos nos seguintes quesitos:',
-                'week6-0': 'Compra dos materiais necessários para o novo eletroimã',
-                'week6-1': 'Impressão 3D para os componentes novos que serão utilizados',
-                'week6-2': 'Mudança de escala após teste inicial',
-                'week6-3': 'Impressão 3D para os componentes na escala ajustada',
+                'week6-0': 'Compra dos materiais necessários para o novo eletroimã.',
+                'week6-1': 'Impressão 3D para os componentes novos que serão utilizados.',
+                'week6-2': 'Mudança de escala após teste inicial.',
+                'week6-3': 'Impressão 3D para os componentes na escala ajustada.',
 
                 'week7-title': 'Semana 7: de 07/12/2024 a 14/12/2024',
                 'week7-content': 'Avançamos nos seguintes quesitos:',
-                'week7-0': 'Criação do módulo do pino',
-                'week7-1': 'Teste do pino com fonte de tensão de 5V e 12V',
-                'week7-2': 'Funcionamento do módulo do pino, mas sem força para descida',
-                'week7-3': 'Início da modelagem da PCB',
+                'week7-0': 'Criação do módulo do pino.',
+                'week7-1': 'Teste do pino com fonte de tensão de 5V e 12V.',
+                'week7-2': 'Funcionamento do módulo do pino, mas sem força para descida.',
+                'week7-3': 'Início da modelagem da PCB.',
 
                 'week8-title': 'Semana 8: de 14/12/2024 a 21/12/2024',
                 'week8-content': 'Avançamos nos seguintes quesitos:',
-                'week8-0': 'Funcionamento do movimento de descida e subida do pino',
-                'week8-1': 'Utilização da ESP para teste dos eletroimâs',
+                'week8-0': 'Funcionamento do movimento de descida e subida do pino.',
+                'week8-1': 'Utilização da ESP para teste dos eletroimâs.',
                 'week8-2': 'Modelagem do circuito eletrônico.',
-                'week8-3': 'Modelagem da PCB',
+                'week8-3': 'Modelagem da PCB.',
+
+                'week9-title': 'Semana 9: de 22/12/2024 a 28/12/2024',
+                'week9-content': 'Avançamos nos seguintes quesitos:',
+                'week9-0': 'Continuação do desenvolvimento da PDB.',
+                'week9-1': 'Compra de materiais para a produção de novos eletroimãs.',
+
+                'week10-title': 'Semana 10: de 29/12/2024 a 04/01/2025',
+                'week10-content': 'Avançamos nos seguintes quesitos:',
+                'week10-0': 'Finalização do desenvolvimento da PDB.',
+                'week10-1': 'Encomenda da placa de circuito impresso.',
+
+                'week11-title': 'Semana 11: de 05/01/2025 a 11/01/2025',
+                'week11-content': 'Avançamos nos seguintes quesitos:',
+                'week11-0': 'Recebimento da PCB.',
+                'week11-1': 'Testes de integração da PCB com eletroimã.',
+                'week11-2': 'Encomenda da impressão 3D dos materiais necessários para produzir os eletroimãs.',
+
+                'week12-title': 'Semana 12: de 12/01/2025 a 18/01/2025',
+                'week12-content': 'Avançamos nos seguintes quesitos:',
+                'week12-0': 'Testes de interferência entre os imãs.',
+                'week12-1': 'Testes de integração da PCB com a ESP.',
+
+                'week13-title': 'Semana 13: de 19/01/2025 a 25/01/2025',
+                'week13-content': 'Avançamos nos seguintes quesitos:',
+                'week13-0': 'Levantamento de soluções para reduzir interferência entre os imãs.',
+
+                'week14-title': 'Semana 14: de 26/01/2025 a 01/02/2025',
+                'week14-content': 'Recesso',
+
+                'week15-title': 'Semana 15: de 02/02/2025 a 08/02/2025',
+                'week15-content': 'Avançamos nos seguintes quesitos:',
+                'week15-0': 'Resolução do problema de interferência entre imãs.',
+                'week15-1': 'Reajustes nas configurações eletromagnéticas de cada pino.',
+
+                'week16-title': 'Semana 16: de 09/02/2025 a 16/02/2025',
+                'week16-content': 'Avançamos nos seguintes quesitos:',
+                'week16-0': 'Desenvolvimento do servidor para contato com a ESP.',
+                'week16-1': 'Produção de novos eletroimãs no novo padrão.',
+                'week16-2': 'Integração entre o servidor, PCB e eletroimãs;'
             }
         };
 
@@ -379,8 +462,12 @@
             <p key="eletronical-content-4"></p>
 
             <hr style="margin: 25px 0 25px 0" />
-            <h3 key="software-specifications"></h3>
 
+            <h3 key="software-specifications"></h3>
+            <p key="software-content-1" style="margin-bottom: 8px;"></p>
+            <p key="software-content-2" style="margin-bottom: 8px;"></p>
+            <img src="img/DiagramaSoftware.png" style="width: 700px; display: block; margin: auto; padding: 20px 0 20px 0" alt="diagrama_software">
+            <p key="software-content-3"></p>
         </div>  
     </section>
 
@@ -477,6 +564,75 @@
                 <li key="week8-1"/>
                 <li key="week8-2"/>
                 <li key="week8-3"/>
+            </ul>
+        </div>
+
+        <div class="post">
+            <h3 key="week9-title">Loading...</h3>
+            <p key="week9-content"/>
+            <ul>
+                <li key="week9-0"/>
+                <li key="week9-1"/>
+            </ul>
+        </div>
+
+        <div class="post">
+            <h3 key="week10-title">Loading...</h3>
+            <p key="week10-content"/>
+            <ul>
+                <li key="week10-0"/>
+                <li key="week10-1"/>
+            </ul>
+        </div>
+
+        <div class="post">
+            <h3 key="week11-title">Loading...</h3>
+            <p key="week11-content"/>
+            <ul>
+                <li key="week11-0"/>
+                <li key="week11-1"/>
+                <li key="week11-2"/>
+            </ul>
+        </div>
+
+        <div class="post">
+            <h3 key="week12-title">Loading...</h3>
+            <p key="week12-content"/>
+            <ul>
+                <li key="week12-0"/>
+                <li key="week12-1"/>
+            </ul>
+        </div>
+
+        <div class="post">
+            <h3 key="week13-title">Loading...</h3>
+            <p key="week13-content"/>
+            <ul>
+                <li key="week13-0"/>
+            </ul>
+        </div>
+
+        <div class="post">
+            <h3 key="week14-title">Loading...</h3>
+            <p key="week14-content"/>
+        </div>
+
+        <div class="post">
+            <h3 key="week15-title">Loading...</h3>
+            <p key="week15-content"/>
+            <ul>
+                <li key="week15-0"/>
+                <li key="week15-1"/>
+            </ul>
+        </div>
+
+        <div class="post">
+            <h3 key="week16-title">Loading...</h3>
+            <p key="week16-content"/>
+            <ul>
+                <li key="week16-0"/>
+                <li key="week16-1"/>
+                <li key="week16-2"/>
             </ul>
         </div>
         
