@@ -36,6 +36,7 @@
 
         /* Navbar styling */
         .navbar {
+            z-index: 100;
             top: 0;
             position: fixed;
             width: 100vw;
@@ -121,6 +122,193 @@
                 height: 1px;
                 border-bottom: var(--grey-color) 2px solid;
                 border-left: 0;
+            }
+        }
+
+        .subtitle {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            max-width: 80%;
+            margin: 0 auto;
+        }
+        
+        .content {
+            padding: 40px;
+        }
+        
+        .video-section {
+            margin-bottom: 40px;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+        
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+        }
+        
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+        .video-info {
+            background-color: var(--light-bg);
+            padding: 20px;
+            border-bottom-left-radius: var(--border-radius);
+            border-bottom-right-radius: var(--border-radius);
+            border-top: 4px solid var(--primary-color);
+        }
+        
+        .video-info h2 {
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+            color: var(--primary-color);
+        }
+        
+        .download-section {
+            background: linear-gradient(to right, #f8f9fa, #ffffff);
+            border-radius: var(--border-radius);
+            padding: 30px;
+            box-shadow: var(--shadow);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .download-section::before {
+            content: '';
+            position: absolute;
+            top: -50px;
+            right: -50px;
+            width: 100px;
+            height: 100px;
+            background-color: rgba(58, 134, 255, 0.1);
+            border-radius: 50%;
+            z-index: 0;
+        }
+        
+        .download-section h2 {
+            position: relative;
+            z-index: 1;
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+        
+        .download-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .pdf-preview {
+            width: 150px;
+            height: 200px;
+            background-color: white;
+            border-radius: 5px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .pdf-preview::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-width: 0 30px 30px 0;
+            border-color: transparent #f0f0f0 transparent transparent;
+        }
+        
+        .pdf-preview i {
+            font-size: 48px;
+            color: var(--accent-color);
+            margin-bottom: 10px;
+        }
+        
+        .pdf-preview span {
+            font-size: 14px;
+            color: #666;
+            text-align: center;
+            padding: 0 10px;
+        }
+        
+        .download-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, var(--primary-color), #4361ee);
+            color: white;
+            padding: 12px 24px;
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: 500;
+            border-radius: 30px;
+            box-shadow: 0 4px 15px rgba(74, 97, 238, 0.3);
+            margin: 15px 0;
+            transition: all 0.3s ease;
+        }
+        
+        .download-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(74, 97, 238, 0.4);
+        }
+        
+        .download-button i {
+            margin-right: 8px;
+            font-size: 1.1rem;
+        }
+        
+        .file-info {
+            display: inline-flex;
+            align-items: center;
+            background-color: #f0f0f0;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            color: #666;
+            margin-top: 10px;
+        }
+        
+        .file-info i {
+            margin-right: 5px;
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 768px) {
+            .header {
+                padding: 25px 20px;
+            }
+            h1 {
+                font-size: 1.8rem;
+            }
+            .subtitle {
+                font-size: 1rem;
+                max-width: 100%;
+            }
+            .content {
+                padding: 30px 20px;
+            }
+            .download-section h2 {
+                font-size: 1.5rem;
             }
         }
 
@@ -646,9 +834,30 @@
     <!-- Results Section -->
     <section id="results">
         <h2 key="results" class="section-title">Results</h2>
-        <div>
-            <p key="results-content"></p>
-        </div>
+        <div class="content">
+            <div class="video-section">
+                <div class="video-container">
+                    <iframe 
+                        src="https://www.youtube.com/embed/lz7X5yZhK_E" 
+                        title="Vídeo do YouTube" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen>
+                    </iframe>
+                </div>
+            </div>
+            
+            <div class="download-content">
+                <div class="pdf-preview">
+                    <i class="fas fa-file-pdf"></i>
+                    <span style="font-size: 38px; font-weight: 900;">RBDS</span>
+                    <span>Report</span>
+                </div>
+                                    
+                <a href="./ELEX21___Relatório_Final (4).pdf" class="download-button" download>
+                    <i class="fas fa-download"></i>
+                    Download
+                </a>
+            </div>
     </section>
 
     <!-- Contact Section -->
